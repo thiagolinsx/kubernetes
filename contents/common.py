@@ -419,9 +419,9 @@ def copy_file(name, namespace, container, source_file, destination_path, destina
 
             if resp.peek_stdout():
                 if stdout:
-                    log.info("%s", resp.read_stdout())
+                    log.info("%s", str((resp.read_stdout()).encode('utf-8').decode("ascii", 'ignore')))
             if resp.peek_stderr():
-                log.error("ERROR: %s", resp.read_stderr())
+                log.error("ERROR: %s", str((resp.read_stderr()).encode('utf-8').decode("ascii", 'ignore')))
             if commands:
                 c = commands.pop(0)
 
@@ -476,9 +476,9 @@ def run_interactive_command(name, namespace, container, command):
         resp.update(timeout=1)
 
         if resp.peek_stdout():
-            print("%s" % resp.read_stdout())
+            print("%s" % str((resp.read_stdout()).encode('utf-8').decode("ascii", 'ignore')))
         if resp.peek_stderr():
-            log.error("%s", resp.read_stderr())
+            log.error("%s", str((resp.read_stderr()).encode('utf-8').decode("ascii", 'ignore')))
 
     ERROR_CHANNEL = 3
     err = api.api_client.last_response.read_channel(ERROR_CHANNEL)
