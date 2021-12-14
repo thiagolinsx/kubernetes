@@ -72,6 +72,13 @@ providers:
         required: false
         renderingOptions:
           groupName: Authentication
+      - name: env
+        type: String
+        title: "Kubernetes Config Env"
+        description: "Type incluster if you run inside a pod"
+        required: false
+        renderingOptions:
+          groupName: Authentication
       - name: url
         type: String
         title: "Cluster URL"
