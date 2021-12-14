@@ -126,6 +126,13 @@ providers:
         renderingOptions:
           groupName: Config
           instance-scope-node-attribute: "kube-pod-shell"
+      - name: env
+        type: String
+        title: "Kubernetes Config Env"
+        description: "Type incluster if you run inside a pod"
+        required: false
+        renderingOptions:
+          groupName: Authentication
       - name: config_file
         type: String
         title: "Kubernetes Config File Path"

@@ -17,6 +17,8 @@ if os.environ.get('RD_JOB_LOGLEVEL') == 'DEBUG':
 
 def main():
 
+    print(os.environ)
+
     common.connect()
 
     api = core_v1_api.CoreV1Api()
